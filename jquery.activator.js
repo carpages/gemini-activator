@@ -126,7 +126,15 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
        * @type boolean
        * @default true
        */
-      preventDefault: true
+      preventDefault: true,
+      /**
+       * Callback function when the active state changes
+       *
+       * @name jquery.activator#onChange
+       * @type function
+       * @default false
+       */
+      onChange: false
     },
 
     init: function(){
@@ -167,6 +175,8 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
           );
         }
       });
+
+      if(plugin.settings.onChange) plugin.settings.onChange.call(this);
     },
 
     /**
