@@ -13,7 +13,7 @@ to add and remove the ``is-active`` class.
  * @requires underscore
  * @requires jquery.boiler
  *
- * @prop {string||array||object} target {@link jquery.activator#target}
+ * @prop {string|array|object} target {@link jquery.activator#target}
  * @prop {string} activeClass {@link jquery.activator#activeClass}
  * @prop {boolean} checkbox {@link jquery.activator#checkbox}
  * @prop {boolean} once {@link jquery.activator#once}
@@ -64,7 +64,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
         });
        *
        * @name jquery.activator#target
-       * @type string||array||object
+       * @type string|array|object
        * @default 'this'
        */
       target: 'this',
