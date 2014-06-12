@@ -1,24 +1,22 @@
 /**
  * @fileoverview
 
-A jQuery plugin that activates different elements on the page by binding events
+A Gemini plugin that activates different elements on the page by binding events
 to add and remove the ``is-active`` class.
 
  *
- * @namespace jquery.activator
+ * @namespace gemini.activator
  * @copyright Carpages.ca 2014
  * @author Matt Rose <matt@mattrose.ca>
  *
- * @requires jquery
- * @requires underscore
- * @requires jquery.boiler
+ * @requires gemini
  *
- * @prop {string|array|object} target {@link jquery.activator#target}
- * @prop {string} activeClass {@link jquery.activator#activeClass}
- * @prop {boolean} checkbox {@link jquery.activator#checkbox}
- * @prop {boolean} once {@link jquery.activator#once}
- * @prop {string} event {@link jquery.activator#event}
- * @prop {boolean} preventDefault {@link jquery.activator#preventDefault}
+ * @prop {string|array|object} target {@link gemini.activator#target}
+ * @prop {string} activeClass {@link gemini.activator#activeClass}
+ * @prop {boolean} checkbox {@link gemini.activator#checkbox}
+ * @prop {boolean} once {@link gemini.activator#once}
+ * @prop {string} event {@link gemini.activator#event}
+ * @prop {boolean} preventDefault {@link gemini.activator#preventDefault}
  *
  * @example
   <html>
@@ -39,7 +37,9 @@ to add and remove the ``is-active`` class.
     target: '#js-thingy'
   });
  */
-define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
+define(['gemini'], function($){
+
+  var _ = $._;
 
   $.boiler('activator', {
     defaults: {
@@ -63,7 +63,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
           }
         });
        *
-       * @name jquery.activator#target
+       * @name gemini.activator#target
        * @type string|array|object
        * @default 'this'
        */
@@ -73,7 +73,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
        *
        * (This is ignored if target is an object)
        *
-       * @name jquery.activator#activeClass
+       * @name gemini.activator#activeClass
        * @type string
        * @default 'is-active'
        */
@@ -97,7 +97,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
           checkbox: true
         });
        *
-       * @name jquery.activator#checkbox
+       * @name gemini.activator#checkbox
        * @type boolean
        * @default false
        */
@@ -106,7 +106,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
        * Whether to only bind the event for one instance. After the first time
        * the target is toggled, it won't be toggled again.
        *
-       * @name jquery.activator#once
+       * @name gemini.activator#once
        * @type boolean
        * @default false
        */
@@ -114,7 +114,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
       /**
        * The event that's bound to the element
        *
-       * @name jquery.activator#event
+       * @name gemini.activator#event
        * @type string
        * @default click
        */
@@ -122,7 +122,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
       /**
        * Whether to preventDefault on the event (helpful for anchors).
        *
-       * @name jquery.activator#preventDefault
+       * @name gemini.activator#preventDefault
        * @type boolean
        * @default true
        */
@@ -130,7 +130,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
       /**
        * Callback function when the active state changes
        *
-       * @name jquery.activator#onChange
+       * @name gemini.activator#onChange
        * @type function
        * @default false
        */
@@ -159,7 +159,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
      * Toggles the target(s) activation classes
      *
      * @method
-     * @name jquery.activator#toggle
+     * @name gemini.activator#toggle
     **/
     toggle: function(){
       var plugin = this;
@@ -192,7 +192,7 @@ define(['jquery-loader', 'underscore', 'jquery.boiler'], function($, _){
      *
      * @private
      * @method
-     * @name jquery.activator#_getTargets
+     * @name gemini.activator#_getTargets
      * @return {array} Array of objects for each target
     **/
     _getTargets: function() {
