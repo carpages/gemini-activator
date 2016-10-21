@@ -37,22 +37,23 @@ to add and remove the ``is-active`` class.
     target: '#js-thingy'
   });
  */
-(function(factory) {
-   if (typeof define === 'function' && define.amd) {
+( function( factory ) {
+  if ( typeof define === 'function' && define.amd ) {
      // AMD. Register as an anonymous module.
-     define(['gemini'], factory);
-   } else if (typeof exports === 'object') {
+    define([ 'gemini' ], factory );
+  } else if ( typeof exports === 'object' ) {
      // Node/CommonJS
-     module.exports = factory(require('gemini'));
-   } else {
+    module.exports = factory(
+      require( 'gemini' )
+    );
+  } else {
      // Browser globals
-     factory(G);
-   }
- }(function($) {
-
+    factory( G );
+  }
+}( function( $ ) {
   var _ = $._;
 
-  $.boiler('activator', {
+  $.boiler( 'activator', {
     defaults: {
       /**
        * Define which element(s) you want to target on activation.
@@ -78,7 +79,7 @@ to add and remove the ``is-active`` class.
        * @type string|array|object
        * @default 'this'
        */
-      target: 'this',
+      target:         'this',
       /**
        * The class to toggle on the target.
        *
@@ -88,7 +89,7 @@ to add and remove the ``is-active`` class.
        * @type string
        * @default 'is-active'
        */
-      activeClass: 'is-active',
+      activeClass:    'is-active',
       /**
        * Whether to support a checkbox within the target that's synced with
        * the active state
@@ -112,7 +113,7 @@ to add and remove the ``is-active`` class.
        * @type boolean
        * @default false
        */
-      checkbox: false,
+      checkbox:       false,
       /**
        * Whether to only bind the event for one instance. After the first time
        * the target is toggled, it won't be toggled again.
@@ -121,7 +122,7 @@ to add and remove the ``is-active`` class.
        * @type boolean
        * @default false
        */
-      once: false,
+      once:           false,
       /**
        * The event that's bound to the element
        *
@@ -129,7 +130,7 @@ to add and remove the ``is-active`` class.
        * @type string
        * @default click
        */
-      event: 'click',
+      event:          'click',
       /**
        * Whether to preventDefault on the event (helpful for anchors).
        *
@@ -145,25 +146,24 @@ to add and remove the ``is-active`` class.
        * @type function
        * @default false
        */
-      onChange: false
+      onChange:       false
     },
 
-    init: function(){
+    init: function() {
       var plugin = this;
 
-      //cache the targets
+      // cache the targets
       plugin.targets = plugin._getTargets();
 
       // bind the event to toggle the class
-      plugin.$el.bind(plugin.settings.event, function(e){
-        if(plugin.settings.preventDefault) e.preventDefault();
+      plugin.$el.bind( plugin.settings.event, function( e ) {
+        if ( plugin.settings.preventDefault ) e.preventDefault();
 
         plugin.toggle();
 
         // unbind
-        if(plugin.settings.once) plugin.$el.unbind(plugin.settings.event);
+        if ( plugin.settings.once ) plugin.$el.unbind( plugin.settings.event );
       });
-
     },
 
     /**
@@ -172,22 +172,22 @@ to add and remove the ``is-active`` class.
      * @method
      * @name gemini.activator#toggle
     **/
-    toggle: function(){
+    toggle: function() {
       var plugin = this;
 
       // toggle the class on each target element
-      _.each(plugin.targets, function(target){
-        target.$el.toggleClass(target.activeClass);
+      _.each( plugin.targets, function( target ) {
+        target.$el.toggleClass( target.activeClass );
 
         // tick checkbox
-        if (plugin.settings.checkbox){
-          target.$el.find(':checkbox').prop('checked',
-            target.$el.hasClass(target.activeClass)
+        if ( plugin.settings.checkbox ) {
+          target.$el.find( ':checkbox' ).prop( 'checked',
+            target.$el.hasClass( target.activeClass )
           );
         }
       });
 
-      if(plugin.settings.onChange) plugin.settings.onChange.call(this);
+      if ( plugin.settings.onChange ) plugin.settings.onChange.call( this );
     },
 
     /**
@@ -210,35 +210,25 @@ to add and remove the ``is-active`` class.
       var plugin = this;
 
       var targets = [];
-      var addTarget = function(target, activeClass){
+      var addTarget = function( target, activeClass ) {
         targets.push(
           {
-            $el: target == 'this' ? plugin.$el : $(target),
+            $el:         target == 'this' ? plugin.$el : $( target ),
             activeClass: activeClass
           }
         );
       };
 
-      if (_.isArray(plugin.settings.target)) {
-
-        _.each(plugin.settings.target, function(target){
-
-          addTarget(target, plugin.settings.activeClass);
-
+      if ( _.isArray( plugin.settings.target )) {
+        _.each( plugin.settings.target, function( target ) {
+          addTarget( target, plugin.settings.activeClass );
         });
-
-      } else if (_.isObject(plugin.settings.target)) {
-
-        _.each(plugin.settings.target, function(activeClass, target){
-
-          addTarget(target, activeClass);
-
+      } else if ( _.isObject( plugin.settings.target )) {
+        _.each( plugin.settings.target, function( activeClass, target ) {
+          addTarget( target, activeClass );
         });
-
       } else {
-
-        addTarget(plugin.settings.target, plugin.settings.activeClass);
-
+        addTarget( plugin.settings.target, plugin.settings.activeClass );
       }
 
       return targets;
@@ -248,5 +238,4 @@ to add and remove the ``is-active`` class.
   // Return the jquery object
   // This way you don't need to require both jquery and the plugin
   return $;
-
 }));
