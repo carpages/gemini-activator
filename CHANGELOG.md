@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.2.2
+
+  - Fix linting errors
+
 ## v0.2.1
 
   - Remove jshint in favour of eslint with custom ruleset
