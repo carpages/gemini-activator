@@ -79,7 +79,8 @@ to add and remove the ``is-active`` class.
        * @type string|array|object
        * @default 'this'
        */
-      target:         'this',
+      target: 'this',
+
       /**
        * The class to toggle on the target.
        *
@@ -89,7 +90,8 @@ to add and remove the ``is-active`` class.
        * @type string
        * @default 'is-active'
        */
-      activeClass:    'is-active',
+      activeClass: 'is-active',
+
       /**
        * Whether to support a checkbox within the target that's synced with
        * the active state
@@ -113,7 +115,8 @@ to add and remove the ``is-active`` class.
        * @type boolean
        * @default false
        */
-      checkbox:       false,
+      checkbox: false,
+
       /**
        * Whether to only bind the event for one instance. After the first time
        * the target is toggled, it won't be toggled again.
@@ -122,7 +125,8 @@ to add and remove the ``is-active`` class.
        * @type boolean
        * @default false
        */
-      once:           false,
+      once: false,
+
       /**
        * The event that's bound to the element
        *
@@ -130,7 +134,8 @@ to add and remove the ``is-active`` class.
        * @type string
        * @default click
        */
-      event:          'click',
+      event: 'click',
+
       /**
        * Whether to preventDefault on the event (helpful for anchors).
        *
@@ -139,6 +144,7 @@ to add and remove the ``is-active`` class.
        * @default true
        */
       preventDefault: true,
+
       /**
        * Callback function when the active state changes
        *
@@ -146,7 +152,7 @@ to add and remove the ``is-active`` class.
        * @type function
        * @default false
        */
-      onChange:       false
+      onChange: false
     },
 
     init: function() {
@@ -210,13 +216,12 @@ to add and remove the ``is-active`` class.
       var plugin = this;
 
       var targets = [];
+
       var addTarget = function( target, activeClass ) {
-        targets.push(
-          {
-            $el:         target == 'this' ? plugin.$el : $( target ),
-            activeClass: activeClass
-          }
-        );
+        targets.push({
+          $el:         target === 'this' ? plugin.$el : $( target ),
+          activeClass: activeClass
+        });
       };
 
       if ( _.isArray( plugin.settings.target )) {
