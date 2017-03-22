@@ -219,7 +219,7 @@ to add and remove the ``is-active`` class.
 
       var addTarget = function( target, activeClass ) {
         targets.push({
-          $el:         target === 'this' ? plugin.$el : $( target ),
+          $el: target === 'this' ? plugin.$el : $( target ),
           activeClass: activeClass
         });
       };
