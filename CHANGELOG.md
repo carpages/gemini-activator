@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.2.3
+
+  - Drop dependency on Ruby
+  - Use Carpages eslint config
+
 ## v0.2.2
 
   - Fix linting errors
