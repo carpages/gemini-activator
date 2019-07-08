@@ -16,12 +16,21 @@
     "gemini-loader": "~0"
   },
   "devDependencies": {
-    "eslint": "^3.18.0",
-    "eslint-config-carpages": "^0.2.0",
-    "grunt": "^1.0.1",
-    "grunt-eslint": "^19.0.0",
-    "load-grunt-tasks": "^3.5.2",
-    "time-grunt": "^1.4.0"
+    "babel-eslint": "10.x",
+    "eslint": "6.0.1",
+    "eslint-config-carpages": "3.2.0-alpha.1",
+    "eslint-config-standard": "12.x",
+    "eslint-plugin-flowtype": "3.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-node": "9.1.0",
+    "eslint-plugin-promise": "4.x",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-requirejs": "4.0.0",
+    "eslint-plugin-standard": "4.x",
+    "grunt": "^1.0.4",
+    "grunt-eslint": "^22.0.0",
+    "load-grunt-tasks": "^5.0.0",
+    "time-grunt": "^2.0.0"
   },
   "licenses": "MIT"
 }

@@ -39,15 +39,15 @@ to add and remove the ``is-active`` class.
  */
 ( function( factory ) {
   if ( typeof define === 'function' && define.amd ) {
-     // AMD. Register as an anonymous module.
+    // AMD. Register as an anonymous module.
     define([ 'gemini' ], factory );
   } else if ( typeof exports === 'object' ) {
-     // Node/CommonJS
+    // Node/CommonJS
     module.exports = factory(
       require( 'gemini-loader' )
     );
   } else {
-     // Browser globals
+    // Browser globals
     factory( G );
   }
 }( function( $ ) {
