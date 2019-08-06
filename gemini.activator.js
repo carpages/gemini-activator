@@ -43,14 +43,12 @@ to add and remove the ``is-active`` class.
     define([ 'gemini' ], factory );
   } else if ( typeof exports === 'object' ) {
     // Node/CommonJS
-    module.exports = factory(
-      require( 'gemini-loader' )
-    );
+    module.exports = factory( require( 'gemini-loader' ));
   } else {
     // Browser globals
     factory( G );
   }
-}( function( $ ) {
+})( function( $ ) {
   var _ = $._;
 
   $.boiler( 'activator', {
@@ -177,7 +175,7 @@ to add and remove the ``is-active`` class.
      *
      * @method
      * @name gemini.activator#toggle
-    **/
+     **/
     toggle: function() {
       var plugin = this;
 
@@ -187,9 +185,7 @@ to add and remove the ``is-active`` class.
 
         // tick checkbox
         if ( plugin.settings.checkbox ) {
-          target.$el.find( ':checkbox' ).prop( 'checked',
-            target.$el.hasClass( target.activeClass )
-          );
+          target.$el.find( ':checkbox' ).prop( 'checked', target.$el.hasClass( target.activeClass ));
         }
       });
 
@@ -243,4 +239,4 @@ to add and remove the ``is-active`` class.
   // Return the jquery object
   // This way you don't need to require both jquery and the plugin
   return $;
-}));
+});
